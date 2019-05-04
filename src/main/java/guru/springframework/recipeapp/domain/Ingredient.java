@@ -1,12 +1,9 @@
 package guru.springframework.recipeapp.domain;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 
-@Data
 @Entity
 public class Ingredient {
 
@@ -29,4 +26,43 @@ public class Ingredient {
         this.uom = uom;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public BigDecimal getAmout() {
+        return amout;
+    }
+
+    public void setAmout(BigDecimal amout) {
+        this.amout = amout;
+    }
+
+    public UnitOfMeasure getUom() {
+        return uom;
+    }
+
+    public void setUom(UnitOfMeasure uom) {
+        this.uom = uom;
+    }
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
+    }
 }
