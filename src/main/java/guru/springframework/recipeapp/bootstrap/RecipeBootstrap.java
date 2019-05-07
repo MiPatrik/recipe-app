@@ -10,9 +10,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Slf4j
 @Component
@@ -102,30 +100,38 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         Recipe guacRecipe = new Recipe();
         guacRecipe.setDescription("Perfect Guacamole");
         guacRecipe.setPrepTime(10);
-        guacRecipe.setCookTime(0);
+        guacRecipe.setCookTime(20);
         guacRecipe.setDifficulty(Difficulty.EASY);
         guacRecipe.setDirections("1 Cut avocado, remove flesh: Cut the avocados in half. Remove seed. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. (See How to Cut and Peel an Avocado.) Place in a bowl.");
+
+        guacRecipe.setUrl("http://www.simplyrecipes.com/recipes/perfect_guacamole/");
+        guacRecipe.setServings(4);
+        guacRecipe.setSource("Simply Recipes");
 
         Notes guacNotes = new Notes();
         guacNotes.setRecipeNotes("For a very quick guacamole just take a 1/4 cup of salsa and mix it in with your mashed avocados.");
 
         guacRecipe.setNotes(guacNotes);
 
-        guacRecipe.getIngredients().add(new Ingredient("ripe avocados", new BigDecimal(2), eachUom));
-        guacRecipe.getIngredients().add(new Ingredient("Kosher salt", new BigDecimal(".5"), teaSpoonUom));
-        guacRecipe.getIngredients().add(new Ingredient("Fresh lime", new BigDecimal(2), tableSpoonUom));
-        guacRecipe.getIngredients().add(new Ingredient("minced red onion", new BigDecimal(2), tableSpoonUom));
-        guacRecipe.getIngredients().add(new Ingredient("serrano chilles", new BigDecimal(2), eachUom));
-        guacRecipe.getIngredients().add(new Ingredient("Cilantro", new BigDecimal(2), tableSpoonUom));
-        guacRecipe.getIngredients().add(new Ingredient("Black pepper", new BigDecimal(".5"), dashSpoonUom));
-        guacRecipe.getIngredients().add(new Ingredient("ripe tomato", new BigDecimal(2), eachUom));
+        Set<Ingredient> ingredients = new HashSet<>();
+        ingredients.add(new Ingredient("ripe avocados", new BigDecimal(2), eachUom));
+
+
+//        guacRecipe.getIngredients().add(new Ingredient("ripe avocados", new BigDecimal(2), eachUom));
+//        guacRecipe.getIngredients().add(new Ingredient("Kosher salt", new BigDecimal(".5"), teaSpoonUom));
+//        guacRecipe.getIngredients().add(new Ingredient("Fresh lime", new BigDecimal(2), tableSpoonUom));
+//        guacRecipe.getIngredients().add(new Ingredient("minced red onion", new BigDecimal(2), tableSpoonUom));
+//        guacRecipe.getIngredients().add(new Ingredient("serrano chilles", new BigDecimal(2), eachUom));
+//        guacRecipe.getIngredients().add(new Ingredient("Cilantro", new BigDecimal(2), tableSpoonUom));
+//        guacRecipe.getIngredients().add(new Ingredient("Black pepper", new BigDecimal(".5"), dashSpoonUom));
+//        guacRecipe.getIngredients().add(new Ingredient("ripe tomato", new BigDecimal(2), eachUom));
+
+        guacRecipe.setIngredients(ingredients);
 
         guacRecipe.getCategories().add(americanCategory);
         guacRecipe.getCategories().add(mexicanCategory);
 
         recipes.add(guacRecipe);
-
-        log.debug("DONE");
 
         return recipes;
     }
