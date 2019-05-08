@@ -11,7 +11,7 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-    private BigDecimal amout;
+    private BigDecimal amount;
     @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure uom;
     @ManyToOne
@@ -22,7 +22,7 @@ public class Ingredient {
 
     public Ingredient(String description, BigDecimal amout, UnitOfMeasure uom) {
         this.description = description;
-        this.amout = amout;
+        this.amount = amout;
         this.uom = uom;
     }
 
@@ -42,12 +42,12 @@ public class Ingredient {
         this.description = description;
     }
 
-    public BigDecimal getAmout() {
-        return amout;
+    public BigDecimal getAmount() {
+        return amount;
     }
 
-    public void setAmout(BigDecimal amout) {
-        this.amout = amout;
+    public void setAmount(BigDecimal amout) {
+        this.amount = amout;
     }
 
     public UnitOfMeasure getUom() {
