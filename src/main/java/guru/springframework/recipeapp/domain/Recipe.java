@@ -21,7 +21,7 @@ public class Recipe {
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
     @Lob
-    private byte[] image;
+    private Byte[] image;
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
     @ManyToMany
@@ -35,7 +35,7 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String description, Integer prepTime, Integer cookTime, Integer servings, String source, String url, String directions, Difficulty difficulty, byte[] image, Notes notes, Set<Category> categories, Set<Ingredient> ingredients) {
+    public Recipe(String description, Integer prepTime, Integer cookTime, Integer servings, String source, String url, String directions, Difficulty difficulty, Byte[] image, Notes notes, Set<Category> categories, Set<Ingredient> ingredients) {
         this.description = description;
         this.prepTime = prepTime;
         this.cookTime = cookTime;
@@ -128,11 +128,11 @@ public class Recipe {
         this.difficulty = difficulty;
     }
 
-    public byte[] getImage() {
+    public Byte[] getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(Byte[] image) {
         this.image = image;
     }
 
