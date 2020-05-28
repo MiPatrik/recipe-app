@@ -7,17 +7,15 @@ import guru.springframework.recipeapp.domain.Ingredient;
 import guru.springframework.recipeapp.domain.Recipe;
 import guru.springframework.recipeapp.repositories.RecipeRepository;
 import guru.springframework.recipeapp.repositories.UnitOfMeasureRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class IngredientServiceImpl implements IngredientService {
-
-	private static final Logger log = LoggerFactory.getLogger(IngredientServiceImpl.class);
 
 	private final IngredientToIngredientCommand ingredientToIngredientCommand;
 	private final IngredientCommandToIngredient ingredientCommandToIngredient;
